@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arte em Vidro</title>
+  <link rel="icon" type="image/png" href="img/logoWhatsApp Image 2025-07-29 at 18.56.23.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="modal" id="cadastroModal">
+  <div class="modal-wrap">
+    <div class="modal-content">
+      <span class="close-modal" onclick="fecharSemValidar()">&times;</span>
+      <h2>Cadastre-se para ver os produtos</h2>
+      <input id="nome" type="text" placeholder="Nome" required />
+      <input id="email" type="email" placeholder="Email" required />
+      <button onclick="fecharModal()">Cadastrar</button>
+    </div>
+    <div class="carousel-box">
+      <img src="img/20190329_191408 (1).jpg" class="carousel-img active" />
+      <img src="img/20191216_074040.jpg" class="carousel-img" />
+      <img src="img/ChatGPT Image 9 de jul. de 2025, 20_37_00.png" class="carousel-img" />
+    </div>
+  </div>
+</div>
+
+<header>
+  <h1>Arte em Vidro</h1>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#produtos">Galeria</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<div class="banner">Decoração artesanal com alma</div>
+
+<section id="sobre" class="sobre-nos">
+  <div class="coluna">
+    <img src="img/20191216_074040.jpg" alt="Peça artesanal em vidro">
+  </div>
+  <div class="coluna">
+    <h2>Sobre Nós</h2>
+    <p>Transformamos garrafas e cristais em peças únicas de decoração. Cada item é feito com carinho, cuidado e estilo.</p>
+  </div>
+</section>
+
+
+<section id="produtos">
+  <h2>Galeria de Produtos</h2>
+  <div class="galeria">
+    <div>
+      <img src="img/20191216_074040.jpg">
+      <p>Vaso artesanal com design exclusivo</p>
+      <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20vaso%20artesanal%20com%20design%20exclusivo." class="btn-whatsapp" target="_blank">Ver mais</a>
+    </div>
+    <div>
+      <img src="img/ChatGPT Image 9 de jul. de 2025, 20_37_00.png">
+      <p>Item decorativo para ambiente interno</p>
+      <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20decorativo%20para%20ambiente%20interno." class="btn-whatsapp" target="_blank">Ver mais</a>
+    </div>
+    <div>
+      <img src="img/WhatsApp Image 2025-06-29 at 22.32.33.jpeg">
+      <p>Item decorativo para ambiente interno</p>
+      <a href="https://wa.me/5511999999999?text=Olá,%20quero%20ver%20mais%20detalhes%20sobre%20este%20item%20decorativo." class="btn-whatsapp" target="_blank">Ver mais</a>
+    </div>
+  </div>
+  <h3>Veja em formato de carrossel</h3>
+  <div class="carrossel">
+    <img src="img/WhatsApp Image 2025-06-29 at 22.32.33.jpeg">
+    <img src="img/20191216_074040.jpg">
+    <img src="img/20190329_191408 (1).jpg">
+    <img src="img/Vaso de vidro com design geométrico.png">
+    <img src="img/20191216_074040.jpg">
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Fale com a gente</h2>
+  <a href="https://wa.me/5511999999999" class="btn-whatsapp" target="_blank">Chamar no WhatsApp</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Arte em Vidro. Todos os direitos reservados.</p>
+</footer>
+
+<!-- ChatBot com links no hover -->
+<div class="chatbot">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Robô Assistente">
+  <div class="chatbot-msg">
+    <h4>Posso ajudar com:</h4>
+    <ul>
+      <li><a href="https://wa.me/5511999999999?text=Oi,%20como%20posso%20ajudar%3F" target="_blank">1. Como posso ajudar?</a></li>
+      <li><a href="https://wa.me/5511999999999?text=Quero%20fazer%20um%20pedido" target="_blank">2. Fazer um pedido</a></li>
+      <li><a href="https://wa.me/5511999999999?text=Tenho%20algumas%20perguntas" target="_blank">3. Perguntas frequentes</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let cadastroFeito = false;
+  const modal = document.getElementById('cadastroModal');
+
+  function fecharModal() {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    if (nome && email) {
+      cadastroFeito = true;
+      modal.style.display = 'none';
+    } else {
+      alert('Preencha todos os campos para continuar.');
+    }
+  }
+
+  function fecharSemValidar() {
+    modal.style.display = 'none';
+    cadastroFeito = true;
+  }
+
+  window.onload = function() {
+    modal.style.display = 'block';
+  };
+
+  const imagens = document.querySelectorAll('.carousel-img');
+  let index = 0;
+
+  setInterval(() => {
+    imagens[index].classList.remove('active');
+    index = (index + 1) % imagens.length;
+    imagens[index].classList.add('active');
+  }, 3000);
+</script>
+<script>
+  const carrossel = document.querySelector('.carrossel');
+  let scrollAmount = 0;
+  const scrollStep = 320; // tamanho da imagem + margem
+  const scrollInterval = 3000; // tempo em milissegundos (3s)
+
+  setInterval(() => {
+    if (scrollAmount >= carrossel.scrollWidth - carrossel.clientWidth) {
+      scrollAmount = 0; // volta para o início
+    } else {
+      scrollAmount += scrollStep;
+    }
+    carrossel.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  }, scrollInterval);
+</script>
+<!-- ChatBot Simulado -->
+<div class="chatbot">
+  <div class="chat-icon" onclick="toggleChat()">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Robô Assistente">
+  </div>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <h4>Assistente Virtual</h4>
+      <span onclick="toggleChat()">×</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="bot-msg">Olá! Posso ajudar com:</div>
+      <ul class="bot-options">
+        <li onclick="handleOption('pedido')">Fazer um pedido</li>
+        <li onclick="handleOption('preco')">Saber preços</li>
+        <li onclick="handleOption('whatsapp')">Falar no WhatsApp</li>
+      </ul>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="userInput" placeholder="Digite aqui..." onkeypress="if(event.key==='Enter'){sendMessage()}">
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
+<!--ChatBot Simulado Script-->
+<script>
+function toggleChat() {
+  const chatWindow = document.getElementById('chatWindow');
+  chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function handleOption(option) {
+  const chatBody = document.getElementById('chatBody');
+
+  if (option === 'pedido') {
+    chatBody.innerHTML += `<div class="bot-msg">Qual produto você deseja?</div>
+      <ul class="bot-options">
+        <li onclick="sendToWhatsApp('Quero jogo de garrafa com 6 copos')">Jogo de garrafa com 6 copos</li>
+        <li onclick="sendToWhatsApp('Quero somente a garrafa')">Somente garrafa</li>
+        <li onclick="sendToWhatsApp('Quero falar com você no WhatsApp')">Falar no WhatsApp</li>
+      </ul>`;
+  }
+
+  if (option === 'preco') {
+    chatBody.innerHTML += `<div class="bot-msg">Os preços variam conforme o modelo. Qual você quer saber?</div>`;
+  }
+
+  if (option === 'whatsapp') {
+    sendToWhatsApp('Olá! Quero mais informações.');
+  }
+
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function sendToWhatsApp(msg) {
+  const phone = "5511999999999"; // coloque seu número com DDD
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function sendMessage() {
+  const input = document.getElementById('userInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const chatBody = document.getElementById('chatBody');
+  chatBody.innerHTML += `<div class="user-msg">${msg}</div>`;
+  input.value = '';
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  setTimeout(() => {
+    chatBody.innerHTML += `<div class="bot-msg">Estou analisando sua mensagem: "${msg}". Pode clicar nas opções acima!</div>`;
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
