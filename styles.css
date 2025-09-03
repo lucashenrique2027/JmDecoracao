@@ -41,8 +41,11 @@ section, .sobre-nos {
 }
 .galeria img {
   width: 300px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .btn-whatsapp {
   background-color: #25D366;
